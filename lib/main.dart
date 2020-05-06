@@ -9,7 +9,7 @@ class Countdowns {
 }
 
 final countdowns = List<Countdowns>.generate(
-  5,
+  4,
   (i) => Countdowns(
     'Countdown $i',
   ),
@@ -63,47 +63,103 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
-      floatingActionButton: FloatingActionButton(
-        highlightElevation: 20,
-        hoverElevation: 20,
-        onPressed: () => {},
-        child: Icon(Icons.add),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      extendBody: true,
-      bottomNavigationBar: BottomAppBar(
-        shape: const CircularNotchedRectangle(),
-        child: BottomNavigationBar(
-          backgroundColor: Colors.white10,
-          type: BottomNavigationBarType.fixed,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.date_range),
-              title: Text('Alle'),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.today),
-              title: Text('Einmalig'),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.cake),
-              title: Text('Wiederholend'),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              title: Text('Einstellungen'),
-            ),
-          ],
-          selectedItemColor: Colors.white,
-          currentIndex: _selectedIndex,
-          onTap: _onItemTapped,
+    return Scaffold(
+        body: SafeArea(
+          bottom: false,
+          child: Center(
+            child: _widgetOptions.elementAt(_selectedIndex),
+          ),
         ),
-      ),
-    );
+        floatingActionButton: FloatingActionButton(
+          highlightElevation: 20,
+          hoverElevation: 20,
+          onPressed: () => {},
+          child: Icon(Icons.add),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        extendBody: true,
+        bottomNavigationBar: BottomAppBar(
+          shape: const CircularNotchedRectangle(),
+          notchMargin: 6.0,
+          child: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Expanded(
+                  flex: 1,
+                  child: InkWell(
+                    onTap: () => {},
+                    child: Padding(
+                      padding: const EdgeInsets.only(top:8.0, bottom:8.0),
+                      child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Icon(Icons.date_range),
+                            Padding(
+                              padding: const EdgeInsets.only(top:4.0),
+                              child: Text('Alle', maxLines: 1, textScaleFactor: 0.8,),
+                            )
+                          ]),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: InkWell(
+                    onTap: () => {},
+                    child: Padding(
+                      padding: const EdgeInsets.only(top:8.0, bottom:8.0),
+                      child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Icon(Icons.today),
+                            Padding(
+                              padding: const EdgeInsets.only(top:4.0),
+                              child: Text('Einmalig', maxLines: 1, textScaleFactor: 0.8,),
+                            )
+                          ]),
+                    ),
+                  ),
+                ),
+                SizedBox(width: 80, height: 25),
+                Expanded(
+                  flex: 1,
+                  child: InkWell(
+                    onTap: () => {},
+                    child: Padding(
+                      padding: const EdgeInsets.only(top:8.0, bottom:8.0),
+                      child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Icon(Icons.cake),
+                            Padding(
+                              padding: const EdgeInsets.only(top:4.0),
+                              child: Text('Wiederholend', maxLines: 1, textScaleFactor: 0.8,),
+                            )
+                          ]),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: InkWell(
+                    onTap: () => {},
+                    child: Padding(
+                      padding: const EdgeInsets.only(top:8.0, bottom:8.0),
+                      child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Icon(Icons.account_circle),
+                            Padding(
+                              padding: const EdgeInsets.only(top:4.0),
+                              child: Text('Profil', maxLines: 1, textScaleFactor: 0.8,),
+                            )
+                          ]),
+                    ),
+                  ),
+                ),
+              ]),
+        ));
   }
 }
 
