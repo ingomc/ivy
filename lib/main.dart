@@ -88,7 +88,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 Expanded(
                   flex: 1,
                   child: InkWell(
-                    onTap: () => {},
+                    onTap: () => {_onItemTapped(0)},
                     child: Padding(
                       padding: const EdgeInsets.only(top:8.0, bottom:8.0),
                       child: Column(
@@ -106,7 +106,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 Expanded(
                   flex: 1,
                   child: InkWell(
-                    onTap: () => {},
+                    onTap: () => {_onItemTapped(1)},
                     child: Padding(
                       padding: const EdgeInsets.only(top:8.0, bottom:8.0),
                       child: Column(
@@ -125,7 +125,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 Expanded(
                   flex: 1,
                   child: InkWell(
-                    onTap: () => {},
+                    onTap: () => {_onItemTapped(2)},
                     child: Padding(
                       padding: const EdgeInsets.only(top:8.0, bottom:8.0),
                       child: Column(
@@ -143,7 +143,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 Expanded(
                   flex: 1,
                   child: InkWell(
-                    onTap: () => {},
+                    onTap: () => {_onItemTapped(3)},
                     child: Padding(
                       padding: const EdgeInsets.only(top:8.0, bottom:8.0),
                       child: Column(
